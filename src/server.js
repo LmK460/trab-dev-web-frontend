@@ -37,6 +37,43 @@ const user = [
   },
 ];
 
+const stock = [
+  {
+    title: "Produto teste 1",
+    qtd:10
+  },
+  {
+    title: "Produto teste 2",
+    qtd:5
+  },
+  {
+    title: "Produto teste 3",
+    qtd:17
+  },
+  {
+    title: "Produto teste 4",
+    qtd:12
+  },
+];
+
+
+const reports = [
+  {
+    title: "VEndas",
+  },
+  {
+    title: "Faturamento",
+    qtd:5
+  },
+  {
+    title: "Vendas Diária",
+    qtd:17
+  },
+  {
+    title: "Teste",
+  },
+];
+
 app.use(express.static("public"));
 
 // app.use(expressLayouts);
@@ -59,7 +96,9 @@ app.get("/products", function (req, res) {
 app.get("/reports", function (req, res) {
   // res.sendFile(path.join(rootPath + "reports/index.html"));
 
-  res.render("pages/reports");
+  res.render("pages/reports",{
+    reports:reports
+  });
 });
 
 app.get("/login-register", function (req, res) {
@@ -71,7 +110,9 @@ app.get("/login-register", function (req, res) {
 app.get("/stock", function (req, res) {
   // res.sendFile(path.join(rootPath + "stock/index.html"));
 
-  res.render("pages/stock");
+  res.render("pages/stock",{
+    stock:stock,
+  });
 });
 
 app.get("/product-detail", function (req, res) {
